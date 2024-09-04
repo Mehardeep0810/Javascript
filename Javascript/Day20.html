@@ -1,0 +1,51 @@
+
+    LP1 Solution
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // //1
+        // let menu =['chole rice', 'kadhai paneer', 'rajma rice', 'garlic bread', 'kadhai chicken','potato', 'chicken tandoori','fish fry','idli','dose','kadhai chaap','momos','onion']
+        // let jainmenu =menu.filter((item)=>{
+        //     if(item.indexOf('chicken')!==-1||item.indexOf('fish')!==-1 ||item.indexOf('onion')!==-1||item.indexOf('potato')!==-1||item.indexOf('garlic bread')!==-1){
+        //         return false;
+        //     }
+        //     else {
+        //         return true;
+        //     }
+        // });
+        // console.log(jainmenu);
+
+        // //2
+        // const x=['Pakistan','China','Nepal'];
+        // x.push('Utopia');
+        // console.log(x);
+
+        // x.shift();
+        // console.log(x);
+
+        // if(!x.includes('iran')){
+        //     console.log('not in the list');
+        // }
+
+        // x[x.indexOf('Pakistan')] = 'Pak';
+        // console.log(x);
+
+        //3
+        const str = "the sky is blue";
+        const words = str.split(' ');
+
+        const reversedWords = words.map(word => {
+            return word.split("").reverse().join("");
+        });
+        const output = reversedWords.join(" ");
+        console.log(output);
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="colorValue" style="position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center;"></div>
+<button id="stopButton" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 10px 10px 5px grey;">Stop Interval</button>
+
+<script>
+let intervalId;
+
+function getRandomColor() {
+    let letters = 'BCDEF'.split('');
+    let color = '#';
+    for (let i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * letters.length)];
+    }
+    return color;
+}
+function changeBackgroundColor() {
+    let color = getRandomColor();
+    document.body.style.backgroundColor = color;
+    return color;
+}
+
+    intervalId = setInterval(function() {
+        changeBackgroundColor();
+    }, 2000);
+
+    document.getElementById("stopButton").addEventListener("click", function() {
+        clearInterval(intervalId);
+        let color = document.body.style.backgroundColor;
+        document.getElementById("colorValue").innerHTML = "Current RGB Value: " + color;
+    });
+
+</script>
+
+
+</body>
+</html>

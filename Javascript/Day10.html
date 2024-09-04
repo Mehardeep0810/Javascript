@@ -1,0 +1,50 @@
+<!-- 
+    //closures
+ function happy (){
+    let a = 20;
+    console.log(a);
+    function sad(){
+        let b=10;
+        console.log(a);
+    }
+    sad();
+ }
+ happy();
+
+ num.forEach((element)=>{
+    console.log(element*element)
+ })
+
+ when once function returns something it is removed from the stack 
+ when outter function returns a function it is removed from the stack but the inner can still call the inner function
+ the lexical scope makes an abject of the variables which is used to make closures which are attached to the function.
+
+
+
+ code
+
+ -->
+ <script>
+   function outter() {
+      var a=10;
+  
+      function inner(){
+         a++;
+        
+         console.log(a);
+       
+      }
+      return inner;
+   }
+   let f1=outer();
+   let f2=outer();
+
+   f1();//11
+f1();//12
+f2();//11
+f2();//12
+//The closure for every variable will be different(new closure is made)
+// it is used in memorisation,debouncy,throthy
+//lexical scope ka function bnn ke aata hai
+
+ </script>

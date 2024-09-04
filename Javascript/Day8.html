@@ -1,0 +1,64 @@
+<!-- Four types of scopes in JavaScript:
+
+1. Functional Scope: In JavaScript, each function creates a new scope. Variables defined inside a function are not accessible (visible) from outside the function¹⁴⁵. Here's an example:
+function myFunction() {
+  var functionVar = "Hello, I'm inside the function!";
+  console.log(functionVar); // Outputs: Hello, I'm inside the function!
+}
+myFunction();
+console.log(functionVar); // Uncaught ReferenceError: functionVar is not defined
+
+2. Local Scope: Variables declared within a JavaScript function have local scope. They can only be accessed from within the function¹⁷⁸. Here's an example:
+function anotherFunction() {
+  let localVar = "Hello, I'm a local variable!";
+  console.log(localVar); // Outputs: Hello, I'm a local variable!
+}
+anotherFunction();
+console.log(localVar); // Uncaught ReferenceError: localVar is not defined
+
+3. Block Scope: With the introduction of `let` and `const` in ES6, JavaScript got block scope. Variables declared with `let` and `const` inside a `{}` block cannot be accessed from outside the block¹²³. Here's an example:
+{
+  let blockVar = "Hello, I'm a block variable!";
+  console.log(blockVar); // Outputs: Hello, I'm a block variable!
+}
+console.log(blockVar); // Uncaught ReferenceError: blockVar is not defined
+
+
+4. Global Scope: A variable declared outside a function becomes global. A global variable has global scope: all scripts and functions on a web page can access it¹[^10^]¹¹. Here's an example:
+let globalVar = "Hello, I'm a global variable!";
+function someFunction() {
+  console.log(globalVar); // Outputs: Hello, I'm a global variable!
+}
+someFunction();
+console.log(globalVar); // Outputs: Hello, I'm a global variable!
+
+forEach function
+var arr=[1,2,3];
+arr.forEach(myfun)
+function myfun(){
+    console.log(arr);
+}
+myfun()
+
+arrow function
+arr.forEach((val)=>{
+    console.log(val);
+})
+
+annonymous function
+var arr=[1,2,3];
+arr.forEach(function(val,index,arr)
+{
+    console.log(val);
+})
+
+arrow function without forEach function
+const add =((a,b)=>{return a+b;})
+
+forEach function without arrow function
+let arr=[1,2,3];
+arr.forEach(function fun(val)
+{
+    console.log(val);
+})
+-->

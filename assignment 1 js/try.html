@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart</title>
+</head>
+<body>
+    <script>
+        //including css in javascript
+let style = document.createElement('style');
+style.innerHTML = `
+body{
+    background-color: #E3E7E8;
+    font-family: system-ui;
+}
+.container{
+    width: 1000px;
+    margin: auto;
+    transition: 0.5s;
+}
+header{
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    margin-top: 50px;
+}
+header .shopping{
+    position: relative;
+    text-align: right;
+}
+header .shopping img{
+    width: 40px;
+    border-radius: 20px;
+}
+header .shopping span{
+    background: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: absolute;
+    top: -5px;
+    left: 80%;
+    padding: 3px 10px;
+}
+.list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+    margin-top: 50px;
+}
+.list .item{
+    text-align: center;
+    background-color: #DCE0E1;
+    padding: 20px;
+    box-shadow: 0 50px 50px #757676;
+    letter-spacing: 1px;
+}
+.list .item img{
+    width: 70%;
+    height: 430px;
+    object-fit: cover;
+}
+.list .item .title{
+    font-weight: 600;
+}
+.list .item .price{
+    margin: 10px;
+}
+.list .item button{
+    background-color: #1C1F25;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+}
+.card{
+    position: fixed;
+    top:0;
+    left: 100%;
+    width: 500px;
+    background-color: #453E3B;
+    height: 100vh;
+    transition: 0.5s;
+}
+.active .card{
+    left: calc(100% - 500px);
+}
+.active .container{
+   transform: translateX(-200px);
+}
+.card h1{
+    color: #E8BC0E;
+    font-weight: 100;
+    margin: 0;
+    padding: 0 20px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+.card .checkOut{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+.card .checkOut div{
+    background-color: #E8BC0E;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+.card .checkOut div:nth-child(2){
+    background-color: #1C1F25;
+    color: #fff;
+}
+.listCard li{
+    display: grid;
+    grid-template-columns: 100px repeat(3, 1fr);
+    color: #fff;
+    row-gap: 10px;
+}
+.listCard li div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.listCard li img{
+    width: 90%;
+}
+.listCard .count{
+    margin: 0 10px;
+}
+`;
+document.head.appendChild(style);
+// Create 'div' element with class 'container'
+var container = document.createElement('div');
+container.className = 'container';
+
+// Create 'header' element
+var header = document.createElement('header');
+
+// Create 'h1' element with text 'Your Shopping Area'
+var h1 = document.createElement('h1');
+h1.textContent = 'Your Shopping Area';
+
+// Create 'div' element with class 'shopping'
+var shopping = document.createElement('div');
+shopping.className = 'shopping';
+
+// Create 'img' element with src 'shoppingbag.jpeg'
+var img = document.createElement('img');
+img.src = 'shoppingbag.jpeg';
+
+// Create 'span' element with class 'quantity' and text '0'
+var quantity = document.createElement('span');
+quantity.className = 'quantity';
+quantity.textContent = '0';
+
+// Append 'img' and 'span' to 'div.shopping'
+shopping.appendChild(img);
+
+
+let arr=[1,2,3,4,5];
+arr.forEach((val)=>{
+console.log(val);
+})
+
+
+
+shopping.appendChild(quantity);
+
+// Append 'h1' and 'div.shopping' to 'header'
+header.appendChild(h1);
+header.appendChild(shopping);
+
+// Append 'header' to 'div.container'
+container.appendChild(header);
+
+// Append 'div.container' to the body of the document
+document.body.appendChild(container);
+// Create a new div element
+let divElement = document.createElement('div');
+
+// Add the 'list' class to the div
+divElement.className = 'list';
+
+// Now, divElement represents <div class="list"></div>
+// You can append it to the body or any other existing element
+container.appendChild(divElement);
+
+// Create 'div' element with class 'card'
+var card = document.createElement('div');
+card.className = 'card';
+
+// Create 'h1' element with text 'Your Cart'
+var h1 = document.createElement('h1');
+h1.textContent = 'Your Cart';
+
+// Create 'ul' element with class 'listCard'
+var listCard = document.createElement('ul');
+listCard.className = 'listCard';
+
+// Create 'div' element with class 'checkOut'
+var checkOut = document.createElement('div');
+checkOut.className = 'checkOut';
+
+// Create 'div' element with class 'total' and text '0'
+var total = document.createElement('div');
+total.className = 'total';
+total.textContent = '0';
+
+// Create 'div' element with class 'closeShopping' and text 'Close'
+var closeShopping = document.createElement('div');
+closeShopping.className = 'closeShopping';
+closeShopping.textContent = 'Close';
+
+// Append 'div.total' and 'div.closeShopping' to 'div.checkOut'
+checkOut.appendChild(total);
+checkOut.appendChild(closeShopping);
+
+// Append 'h1', 'ul.listCard', and 'div.checkOut' to 'div.card'
+card.appendChild(h1);
+card.appendChild(listCard);
+card.appendChild(checkOut);
+
+// Append 'div.card' to the body of the document
+document.body.appendChild(card);
+
+
+let openshopping = document.querySelector('.shopping');
+let closeshopping = document.querySelector('.closeShopping');
+let list = document.querySelector('.list');
+let listcard = document.querySelector('.listCard');
+let body = document.querySelector('body');
+let Total = document.querySelector('.total');
+let Quantity = document.querySelector('.quantity');
+
+openshopping.addEventListener('click', ()=>{
+    body.classList.add('active');
+})
+closeshopping.addEventListener('click', ()=>{
+    body.classList.remove('active');
+})
+let products = [
+    {
+        id: 1,
+        name: 'Leaf Pearl Tree Lamp',
+        image: 'product1.jpeg',
+        price: 3500
+    },
+    {
+        id: 2,
+        name: 'Moon LED Night Lamp',
+        image: 'product2.jpg',
+        price: 3999
+    },
+    {
+        id: 3,
+        name: 'IKEA Table Lamp',
+        image: 'product3.jpeg',
+        price: 4200
+    },
+    {
+        id: 4,
+        name: 'Vintage Metal Table Lamp',
+        image: 'product4.jpg',
+        price: 4999
+    },
+    {
+        id: 5,
+        name: 'Thrive Planter LED Table Lamp',
+        image: 'product5.jpg',
+        price: 5100
+    },
+    {
+        id: 6,
+        name: 'Antique Brass Table Lamp',
+        image: 'product6.jpeg',
+        price: 2999
+    }
+];
+let listCards  = [];
+function initApp(){
+    products.forEach((value, key) =>{
+        let newDiv = document.createElement('div');
+        newDiv.classList.add('item');
+        newDiv.innerHTML = `
+            <img src="${value.image}"/>
+            <div class="title">${value.name}</div>
+            <div class="price">${new Intl.NumberFormat().format(value.price)}</div>
+            <button onclick="addToCard(${key})">Add To Cart</button>`;
+        list.appendChild(newDiv);
+    })
+}
+initApp();
+function addToCard(key){
+    if(listCards[key] == null){
+        // copy product form list to list card
+        listCards[key] = Object.assign({}, products[key]);
+        listCards[key].quantity = 1;
+    }
+    reloadCard();
+}
+function reloadCard(){
+    listCard.innerHTML = '';
+    let count = 0;
+    let totalPrice = 0;
+    listCards.forEach((value, key)=>{
+        totalPrice = totalPrice + value.price;
+        count = count + value.quantity;
+        if(value != null){
+            let newDiv = document.createElement('li');
+            newDiv.innerHTML = `
+                <div><img src="${value.image}"/></div>
+                <div>${value.name}</div>
+                <div>${new Intl.NumberFormat().format(value.price)}</div>
+                <div>
+                    <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
+                    <div class="count">${value.quantity}</div>
+                    <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
+                </div>`;
+                listCard.appendChild(newDiv);
+        }
+    })
+    total.innerText = new Intl.NumberFormat().format(totalPrice);
+    quantity.innerText = count;
+}
+function changeQuantity(key, quantity){
+    if(quantity == 0){
+        delete listCards[key];
+    }else{
+        listCards[key].quantity = quantity;
+        listCards[key].price = quantity * products[key].price;
+    }
+    reloadCard();
+}
+
+
+    </script>
+</body>
+</html>

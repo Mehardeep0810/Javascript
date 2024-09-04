@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Event Handling</h1>
+    <!--1.Adding event directly-->
+    <button onClick="alert('hi')">Click Here</button>
+
+    <!--2.Adding event -->
+    <button id="btn">Click me</button>
+    <script>
+        document.getElementById("btn").onclick=function()
+        {
+            alert('hi');
+        };
+
+        //3.Adding event with 3 parameters
+     document.getElementById("btn").addEventListener('click',function(){
+        alert('hi');
+    });
+
+    //Accessing Event object
+document.getElementById("btn").addEventListener('click',function(e){
+    console.log(e)
+})
+    </script>
+</body>
+</html>
