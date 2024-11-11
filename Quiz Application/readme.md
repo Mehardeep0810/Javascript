@@ -1,0 +1,2 @@
+The quiz application presents a series of questions with multiple-choice answers, tracks the user's score, and provides feedback on correct and incorrect answers. It uses HTML, CSS, and JavaScript to create an interactive user interface.
+The application handles user input by displaying questions one at a time, collecting answers, and showing the final score at the end. It includes functionalities to reset the state, navigate through questions, and restart the quiz.
